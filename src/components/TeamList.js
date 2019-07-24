@@ -5,8 +5,16 @@ export default function MemberList (props) {
 
     return (
         <div className="member-container">
-            {props.members}
-            {console.log('MemberList', props)}
+            {props.teamMember.map( (person, index) => {
+        // console.log(person)
+        return  (
+          <div className="container" key={index}> 
+                <h4>Name: {person.name}</h4>
+                <p>Email: {person.email}</p>
+                <p>Email: {person.role}</p>
+          </div>
+        )
+      })}
         </div>
     )
 }
