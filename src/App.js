@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import SignupForm from './components/Form';
 import TeamList from './components/TeamList';
-import { member } from './TeamData';
+import { members } from './TeamData';
 
 import './App.css';
 
@@ -11,7 +11,7 @@ import './App.css';
 function App() {
 
   const {teamMember, setTeamMember} = useState([])
-  console.log(member)
+  console.log(members)
   //may need to change the key and value. Value may become an empty string. 
   //? does the useState go outside or inside the App function?
     
