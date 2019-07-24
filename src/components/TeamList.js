@@ -1,12 +1,12 @@
 import React from 'react';
 
 export default function MemberList (props) {
-    const members = props.members;
+    // const members = props;
 
     return (
-        <div className="">
-            
-            {console.log('MemberList', members)}
+        <div className="member-container">
+            {props.members}
+            {console.log('MemberList', props)}
         </div>
     )
 }

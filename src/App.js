@@ -10,10 +10,8 @@ import './App.css';
 
 function App() {
 
-  const {teamMember, setTeamMember} = useState([])
-  console.log(members)
-  //may need to change the key and value. Value may become an empty string. 
-  //? does the useState go outside or inside the App function?
+  const {teamMember, setTeamMember} = useState({})
+  
     
   return (
     <div className="App">
@@ -28,6 +26,16 @@ function App() {
           teamMember={teamMember}
           setTeamMember={setTeamMember}
       />
+      {members.map( (person, index) => {
+        console.log(person)
+        return  (
+          <div className="container" key={index}> 
+                <h4>Name: {person.name}</h4>
+                <p>Email: {person.email}</p>
+                <p>Email: {person.role}</p>
+          </div>
+        )
+      })}
       
         
     </div>
