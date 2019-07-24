@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+
+import SignupForm from './components/Form';
+
 import './App.css';
 
 
@@ -11,8 +14,11 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Team Member List</h1>
-      {/* Hardcoded example of what I need */}
+      <h1>Who's on the team</h1>
+      <h3>Add a Team Member:</h3>
+      <SignupForm />
+      <h3>Team Member List</h3>
+      {/* Hard-coded example of what I need */}
       <div>
         <h4>Name: Jade</h4>
         <p>Email: jade@gmail.com</p>
