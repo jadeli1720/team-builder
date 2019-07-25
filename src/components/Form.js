@@ -3,13 +3,16 @@ import { userInfo } from 'os';
 
 
 
-export default function SignupForm(member,setMember,addMember, memberToEdit, setMemberToEdit) {
-    const [initialFormState] = useState({ id: null, name:"", email:"", role:""})
-    const [newPerson, setNewPerson] = useState(initialFormState)
+export default function SignupForm(props) {
+    // const [initialFormState] = useState({ id: null, name:"", email:"", role:""})
+    const {submitMember} = props
+    const [newPerson, setNewPerson] = useState({name:"", email:"", role:""})
 
     // console.log("teamMembers",member);
     function handleChange(event) {
         const updatedUser ={...newPerson, [event.target.name]: event.target.value};
+        //event.target.name is the key!!! targeting the key of a variable. NOT an array!
+        //This sets the value of the key by targeting that key and changing it's value
         console.log(
             "handleChange",
             event.target.name,
@@ -20,14 +23,11 @@ export default function SignupForm(member,setMember,addMember, memberToEdit, set
     }
 
     function handleSubmit(event) {
-        event.preventDefault();
-        if(!newPerson.name || !newPerson.email || !newPerson.role) {
-            // return {
-            //     addMember(newPerson)
-            //     setMember(initialFormState)
-            // }
-            
-        }
+        event.preventDefault();//This prevents the page from re-rendering every time we submit.
+        submitMember(newPerson);
+        setNewPerson({name:"", email:"", role:""});
+
+        
         console.log('name', newPerson);
     }
 

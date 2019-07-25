@@ -17,11 +17,7 @@ function App() {
 
   //Function that will add a new member to state(people). 
   const addMember = person => {
-    //adding to and incrementing the id of the people array of objects
-    person.id = member.length + 1
-    //use setMember to update the useState. 
     setMember([...member, person])
-    //Spread operator used to add to array of objects but keep existing values in place.
   }
 
   return (
@@ -33,7 +29,7 @@ function App() {
         <SignupForm 
           member={member}
           setMember={setMember}
-          addMember={addMember}
+          submitMember={addMember}//this left side is to be declaritive of what it is doing and passing it on to the form
          />
       </div>
 
