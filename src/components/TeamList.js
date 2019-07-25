@@ -1,5 +1,7 @@
 import React from 'react';
 
+//what we need for this component: {name: "", email:"", role: ""}
+
 export default function MemberList(props) {
 
     return (

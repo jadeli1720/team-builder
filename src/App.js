@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App">
       <h1>Who's on the team</h1>
-
+      <div className="app-container">
       <div className=" left-column">
       <h3>Add a Team Member</h3>
         <SignupForm 
@@ -46,6 +46,8 @@ function App() {
           setMemberToEdit={setMemberToEdit}
         />
       </div>
+      </div>
+      
     </div>
   );
 }

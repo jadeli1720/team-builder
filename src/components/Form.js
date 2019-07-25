@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
+import { userInfo } from 'os';
 
 
 
-export default function SignupForm(members, setMembers, memberToEdit) {
-    const [newPerson, setNewPerson] = useState({name:"", email:"", role:""})
+export default function SignupForm(member,setMember,addMember, memberToEdit, setMemberToEdit) {
+    const [initialFormState] = useState({ id: null, name:"", email:"", role:""})
+    const [newPerson, setNewPerson] = useState(initialFormState)
 
-    console.log("teamMembers",members);
+    // console.log("teamMembers",member);
     function handleChange(event) {
         const updatedUser ={...newPerson, [event.target.name]: event.target.value};
         console.log(
@@ -19,11 +21,18 @@ export default function SignupForm(members, setMembers, memberToEdit) {
 
     function handleSubmit(event) {
         event.preventDefault();
+        if(!newPerson.name || !newPerson.email || !newPerson.role) {
+            // return {
+            //     addMember(newPerson)
+            //     setMember(initialFormState)
+            // }
+            
+        }
         console.log('name', newPerson);
     }
 
     // useEffect(() => {
-
+    //     setMember(member)
     // }, [])
 
 
