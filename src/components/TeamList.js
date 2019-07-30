@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { people } from '../TeamData';
 //what we need for this component: {name: "", email:"", role: ""}
 
 export default function MemberList(props) {

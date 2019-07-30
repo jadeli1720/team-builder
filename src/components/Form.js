@@ -5,7 +5,7 @@ import { userInfo } from 'os';
 
 export default function SignupForm(props) {
     console.log(props)
-    const {submitMember, initialPerson} = props
+    const {submitMember, initialPerson, buttonText, history} = props
     // const [newPerson, setNewPerson] = useState({name:"", email:"", role:""})
     const [newPerson, setNewPerson] = useState(initialPerson || {name:"", email:"", role:""});
 
@@ -27,7 +27,7 @@ export default function SignupForm(props) {
         event.preventDefault();//This prevents the page from re-rendering every time we submit.
         submitMember(newPerson);
         setNewPerson({name:"", email:"", role:""});//This resets the values and clears the form
-
+        history.push("/");//When the form is submitted, we navigate back to home.
         
         console.log('name', newPerson);
     }
@@ -76,7 +76,7 @@ export default function SignupForm(props) {
                     />
                 </div>
                 <button type="submit" className="btn-form">
-            Submit</button>
+            {buttonText}</button>
             {/* {console.log('Form', members)} */}
             </form>
         </div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Route, Link } from 'react-router-dom';
 import SignupForm from './components/Form';
 import TeamList from './components/TeamList';
-import { people } from './TeamData';
+// import { people } from './TeamData';//We actually don't need this. We can have line 13 the way it is so that it can except any data. It's ready to go
 
 import './App.css';
 
@@ -10,7 +10,7 @@ import './App.css';
 
 function App() {
 
-  const [member, setMember] = useState(people);
+  const [member, setMember] = useState([]);
   //The above variables for useState should always be surrounded with []. We are this setting the initial state "teamMember" to the array from TeamData.js called people. This will allow us to  map over teamMember and also pass the array data to the child components.
 
   // const [memberToEdit, setMemberToEdit] = useState();
@@ -26,9 +26,12 @@ function App() {
     const memberCopy = [...member];
     const oldMember = memberCopy.find(member=> member.id === editedMember.id);
     console.log(editedMember,oldMember);
-    oldMember.name = editedMember.name;
-    oldMember.email = editedMember.email;
-    oldMember.role = editedMember.role;
+   
+    // oldMember.name = editedMember.name;
+    // oldMember.email = editedMember.email;
+    // oldMember.role = editedMember.role;
+    //Above DRY
+    Object.assign(oldMember, editedMember);
     setMember(memberCopy);
   };
 
@@ -38,7 +41,9 @@ function App() {
       <Link to="/components/Form">Add Person</Link>
       <Route path="/components/Form" 
               render={props => <SignupForm {...props} 
-              submitMember={addMember} />} />
+              submitMember={addMember}
+              buttonText="Add Person"
+              />} />
 
       <Route exact path ="/" 
              render={props => <TeamList {...props}
@@ -52,6 +57,7 @@ function App() {
               return <SignupForm {...props} 
                                  initialPerson={person}
                                  submitMember={editMember}
+                                 buttonText="Edit Person"
                                  />;
               }}/>
     </div>
