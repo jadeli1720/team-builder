@@ -25,7 +25,7 @@ export default function SignupForm(props) {
     function handleSubmit(event) {
         event.preventDefault();//This prevents the page from re-rendering every time we submit.
         submitMember(newPerson);
-        setNewPerson({name:"", email:"", role:""});
+        setNewPerson({name:"", email:"", role:""});//This resets the values and clears the form
 
         
         console.log('name', newPerson);
@@ -37,43 +37,47 @@ export default function SignupForm(props) {
 
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div className="form-group">
-                <label>Name:</label>
-                <input
-                    type="text"
-                    className="input"
-                    name="name"
-                    placeholder="Please enter the name"
-                    value={newPerson.name}
-                    onChange={handleChange}
-                />
-            </div>
-            <div className="form-group">
-                <label>Email:</label>
-                <input
-                    type="text"
-                    className="input"
-                    name="email"
-                    placeholder="Please enter a email"
-                    value={newPerson.email}
-                    onChange={handleChange}
-                />
-            </div>
-            <div className="form-group">
-                <label>Role:</label>
-                <input
-                    type="text"
-                    className="input"
-                    name="role"
-                    placeholder="Please enter their role"
-                    value={newPerson.role}
-                    onChange={handleChange}
-                />
-            </div>
-            <button type="submit" className="btn-form">
-          Submit</button>
-          {/* {console.log('Form', members)} */}
-        </form>
+        <div>
+            <h2>Add a Team Member</h2>
+        
+            <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label>Name:</label>
+                    <input
+                        type="text"
+                        className="input"
+                        name="name"
+                        placeholder="Please enter the name"
+                        value={newPerson.name}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Email:</label>
+                    <input
+                        type="text"
+                        className="input"
+                        name="email"
+                        placeholder="Please enter a email"
+                        value={newPerson.email}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Role:</label>
+                    <input
+                        type="text"
+                        className="input"
+                        name="role"
+                        placeholder="Please enter their role"
+                        value={newPerson.role}
+                        onChange={handleChange}
+                    />
+                </div>
+                <button type="submit" className="btn-form">
+            Submit</button>
+            {/* {console.log('Form', members)} */}
+            </form>
+        </div>
     )
 }

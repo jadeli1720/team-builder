@@ -6,6 +6,7 @@ export default function MemberList(props) {
 
     return (
         <div className="member-container">
+            <h1>Meet the Development Team</h1>
             {props.member.map((person, index) => {
                 return (
                     <div className="card" key={index}>
