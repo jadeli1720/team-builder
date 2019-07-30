@@ -17,7 +17,8 @@ function App() {
 
   //Function that will add a new member to state(people). 
   const addMember = person => {
-    setMember([...member, person])
+    setMember([...member, {...person, id: Date.now()}])
+    //Date.now() is the value of id. This will generate a unique id for people we are adding using this function. This will be important for when we are editing and need to grab them.
   }
 
   return (
@@ -33,7 +34,12 @@ function App() {
              member={member}
              setMember={setMember} />}/>
 
-      
+      <Route path="/edit/:id" 
+             render={props => {
+              //  console.log(props);
+              const person = member.find(member=> member.id.toString() === props.match.params.id);
+              return <SignupForm {...props} initialPerson={person} />;
+              }}/>
     </div>
   );
 }

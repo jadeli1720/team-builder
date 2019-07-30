@@ -4,8 +4,8 @@ import { userInfo } from 'os';
 
 
 export default function SignupForm(props) {
-    // const [initialFormState] = useState({ id: null, name:"", email:"", role:""})
-    const {submitMember} = props
+    console.log(props)
+    const {submitMember, initialPerson} = props
     const [newPerson, setNewPerson] = useState({name:"", email:"", role:""})
 
     // console.log("teamMembers",member);
