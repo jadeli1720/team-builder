@@ -21,6 +21,17 @@ function App() {
     //Date.now() is the value of id. This will generate a unique id for people we are adding using this function. This will be important for when we are editing and need to grab them.
   }
 
+  //Function to edit existing member
+  const editMember = editedMember => {
+    const memberCopy = [...member];
+    const oldMember = memberCopy.find(member=> member.id === editedMember.id);
+    console.log(editedMember,oldMember);
+    oldMember.name = editedMember.name;
+    oldMember.email = editedMember.email;
+    oldMember.role = editedMember.role;
+    setMember(memberCopy);
+  };
+
   return (
     <div className="App">
       <Link to="/">Home</Link>
@@ -38,7 +49,10 @@ function App() {
              render={props => {
               //  console.log(props);
               const person = member.find(member=> member.id.toString() === props.match.params.id);
-              return <SignupForm {...props} initialPerson={person} />;
+              return <SignupForm {...props} 
+                                 initialPerson={person}
+                                 submitMember={editMember}
+                                 />;
               }}/>
     </div>
   );

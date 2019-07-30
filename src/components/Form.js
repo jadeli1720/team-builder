@@ -6,7 +6,8 @@ import { userInfo } from 'os';
 export default function SignupForm(props) {
     console.log(props)
     const {submitMember, initialPerson} = props
-    const [newPerson, setNewPerson] = useState({name:"", email:"", role:""})
+    // const [newPerson, setNewPerson] = useState({name:"", email:"", role:""})
+    const [newPerson, setNewPerson] = useState(initialPerson || {name:"", email:"", role:""});
 
     // console.log("teamMembers",member);
     function handleChange(event) {
